@@ -1,0 +1,18 @@
+@use './layout' as *;
+@use './topography' as *;
+.grpc {
+  &__button {
+    background: #fff;
+    color: #3c4858;
+    border-radius: 5px;
+    margin-inline-start: $spacer-2;
+    border: 0;
+    padding: $spacer-2 $spacer-3;
+    transition: .3s;
+    cursor: pointer;
+    &:hover{
+      background: #644bff;
+      color: #fff;
+    }
+  }
+}

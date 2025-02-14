@@ -1,0 +1,86 @@
+syntax="proto3";
+option go_package = "sebastianbaiju.com/User-manage/User;pb_person";
+
+message Role {
+    string id = 1;
+    string role = 2;
+};
+
+message User {
+    string id = 1;
+    string name = 2;
+    Role role = 3;
+    string filename = 4;
+    bytes data = 5;
+    string username = 6;
+}
+
+
+message GetUserRequest {
+    string id = 1;
+}
+
+message CreateUserRequest {
+    string name = 1;
+    string role = 2;
+    string filename = 3;
+    string username = 6;
+    bytes data = 4;
+}
+
+message UpdateUserRequest {
+    string id = 1;
+    string name = 2;
+    string role = 3;
+    string filename = 4;
+    string username = 6;
+    bytes data = 5;
+}
+message DeleteUserRequest {
+    string id = 1;
+}
+message UserResponse {
+    string value = 1;
+    string password = 2;
+}
+
+message ListUserRequest {
+    int64 offset = 1;
+    int64 Limit = 2;
+    string name = 3;
+}
+message UserListResponse {
+    repeated User Users = 1;  // This defines a list of User objects
+    int64 count = 2;
+  }
+
+message  UserSearchListRequest{
+    string name = 1;
+}
+
+message UserSearch {
+    string id = 1;
+    string name = 2;
+}
+
+message UserSearchResult {
+    repeated UserSearch search = 1;
+}
+
+message RoleRequest {}
+
+message RoleResponse {
+    repeated Role  result= 1;
+};
+
+
+service UserService {
+    rpc GetUser(GetUserRequest) returns (User) {}
+    rpc CreateUser(CreateUserRequest) returns (UserResponse) {}
+    rpc UpdateUser(UpdateUserRequest) returns (UserResponse) {}
+    rpc DeleteUser(DeleteUserRequest) returns (UserResponse) {}
+    rpc ListUserStream(ListUserRequest) returns (stream User) {}
+    rpc ListUser(ListUserRequest) returns (UserListResponse) {}
+    rpc ListRole(RoleRequest) returns (RoleResponse) {}
+    rpc UserListSearch (stream UserSearchListRequest) returns (stream UserSearchResult) {}
+}

@@ -1,0 +1,46 @@
+@use './layout' as *;
+@use './topography' as *;
+@use './mixin' as *;
+.grpc-list {
+  padding: $spacer-3;
+  &__header {
+  margin-top: $spacer-2;
+  align-items: center;
+  font-size: $font-lg;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  }
+ 
+  &__header-actions {
+    display: flex;
+  }
+  &__content-wrapper {
+    min-height: calc(100vh - 156px);
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: $spacer-3 (-$spacer-3) $spacer-0;
+
+  }
+  &__card {
+    width: calc(100% - $spacer-2) ;
+    margin: $spacer-2 $spacer-3;
+    &--popup{
+      margin:$spacer-5 $spacer-3;
+    }
+  }
+}
+@include breakpoint(md) {
+  .grpc-list__card {
+    width: calc(50% - $spacer-5) ;
+  }
+  }
+
+@include breakpoint(lg) {
+.grpc-list__card {
+  width: calc(33.33% - $spacer-5) ;
+}
+}
+

@@ -1,0 +1,107 @@
+@use '../../style/layout' as *;
+@use '../../style/topography' as *;
+@use '../../style/components.scss' as *;
+.app-add-profile {
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  &__input ,   &__password{
+    outline: none;
+    padding: $spacer-0 $spacer-2;
+    border-radius: 10px;
+    border: 1px solid rgb(219, 217, 217);
+    &--drop {
+      padding: 12px;
+    }
+  }
+
+  &__password {
+    min-height: 10px;
+    padding: $spacer-2;
+    margin-inline-end: $spacer-2;
+  }
+  &__image {
+    width: 122px;
+    min-width: 122px;
+    height: 122px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+  }
+  &__placeholder {
+      width: 30px;
+  }
+  &__types {
+    text-align: center;
+    color: #6e6e6e;
+    margin-top: $spacer-2;
+  }
+  &__error {
+    font-size: $font-sm;
+  }
+  &__upload  {
+    background: #ffffff9b;
+    padding: $spacer-3;
+    border-radius: 5px;
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+  }
+  &__label {
+    margin-top: $spacer-2;
+    margin-bottom: $spacer-2;
+    color: #6e6e6e;
+  }
+  &__btn-wrapper{
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__image-wrapper{
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  &__head{
+    font-size: $font-ml;
+    font-weight: $font-weight-bold;
+    margin-top: $spacer-2;
+    margin-bottom: $spacer-2;
+    color: #6e6e6e;
+    margin: -6px (-$spacer-3) $spacer-3;
+    padding:$spacer-2  $spacer-3;
+    box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
+  }
+  &__clip {
+    cursor: pointer;
+  }
+  &__label-wrapper {
+    width: 100%;
+    margin-inline-start: $spacer-2;
+  }
+  &__btn {
+    margin: $spacer-2 $spacer-0;
+  }
+  &__password-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $spacer-3;
+  }
+  &__file {
+    display:none;
+  }
+}

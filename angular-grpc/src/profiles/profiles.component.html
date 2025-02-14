@@ -1,0 +1,21 @@
+<div class="grpc-list">
+  <div class="grpc-list__header">
+    <div class="grpc-list__header-title">Profile</div>
+
+    <div class="grpc-list__header-actions">
+      <app-search (searchFinished)="searchFinished($event)" [suggestedList]="userSuggestionList()"  (search)="searchUser($event)"></app-search>
+      <button  class="grpc__button" (click)="openBottomSheet()">Add Profile</button>
+    </div>
+  </div>
+  <div class="grpc-list__content-wrapper">
+    <div class="grpc-list__content">
+      @for ( user of userList(); track user) {
+      <app-profiles-card (deleteEvent)="deleteUser($event)" [deleteEnable]="count() > 1" (editEvent)="openBottomSheet($event)" [userDetails]="user"  class="grpc-list__card"></app-profiles-card>
+      }
+
+    </div>
+  </div >
+
+  <mat-paginator [length]="count()" [pageSizeOptions]="[10, 20, 100]" aria-label="Select page" (page)="page($event)">
+  </mat-paginator>
+</div>

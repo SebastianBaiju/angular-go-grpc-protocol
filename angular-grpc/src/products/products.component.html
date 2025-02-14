@@ -1,0 +1,23 @@
+<!--
+<input class="input-inset" type="text" placeholder="Search" (input)="searchProduct($event)"> -->
+
+<div class="grpc-list">
+  <div class="grpc-list__header">
+    <div class="grpc-list__header-title">Products</div>
+    <div class="grpc-list__header-actions">
+      <app-search (searchFinished)="searchFinished($event)" [suggestedList]="productSuggestionList()"  (search)="searchProduct($event)"></app-search>
+    </div>
+  </div>
+  <div class="grpc-list__content-wrapper">
+  <div class="grpc-list__content">
+    <app-products-card [createEnable]="true" class="grpc-list__card grpc-list__card--popup" (details)="createProduct($event)"></app-products-card>
+    @for ( product of productList(); track product) {
+    <app-products-card (deleteEvent)="deleteProduct($event)" (details)="editProduct($event)" [productDetails]="product" class="grpc-list__card  grpc-list__card--popup"></app-products-card>
+    }
+  </div>
+  </div>
+  <mat-paginator [length]="count()" [pageSizeOptions]="[10, 20, 100]" aria-label="Select page" (page)="page($event)">
+</mat-paginator>
+</div>
+
+

@@ -1,0 +1,104 @@
+@use '../../style/mixin' as *;
+@use '../../style/layout' as *;
+@use '../../style/topography' as *;
+@use '../../style/form-input' as *;
+.card {
+  box-shadow:6px 7px 17px 0px rgba(0, 0, 0, 0.14);
+  border: 0;
+  border-radius: 6px;
+  color: #333;
+  background: #fff;
+  width: 100%;
+    transition: all .3s cubic-bezier(.34,1.61,.7,1);
+  &__image {
+    background-color: #fff;
+    width: 122px;
+    min-width: 122px;
+    min-height: 122px;
+    height: calc(100% + 10px);
+    object-fit: cover;
+    border-radius: 6px;
+    pointer-events: none;
+    box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    margin-top: -10px;
+    display: block;
+  }
+  &__name-outer {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__placeholder  {
+    font-size: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100%;
+
+  }
+&__title {
+     color: #3c4858;
+    text-decoration: none;
+    font-size: $font-ml;
+    font-weight: $font-weight-medium;
+    text-align: center;
+}
+&__data-wrapper {
+  padding: $spacer-3;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+&__body {
+  display: flex;
+  margin-top: 10px;
+}
+
+&__btn-wrapper{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+    .material-icons{
+      margin-inline-start: $spacer-1;
+      cursor: pointer;
+    }
+}
+
+&__name {
+  font-weight: $font-weight-bold;
+}
+&__value, .form__input {
+  color: #999;
+
+}
+&__username {
+  color: #999;
+  font-size: $font-sm;
+  margin: $spacer-1 $spacer-0;
+}
+&__designation {
+  max-width: 82px;
+  margin-top: auto;
+  color: #644bff;
+  background-color: #efecff;
+  font-size: $font-xs;
+  border-radius: 5px;
+  text-align: center;
+  padding: $spacer-1;
+}
+&__dropdown {
+  margin-top: $spacer-3;
+}
+&__btn {
+  cursor: pointer;
+  color: attr(color);
+}
+
+&:hover {
+  transform: scale(1.03);
+}
+}
+
+:host {
+  display: block;
+}

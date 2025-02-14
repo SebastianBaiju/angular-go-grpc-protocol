@@ -1,0 +1,63 @@
+@use '../../../style/mixin' as *;
+@use '../../../style/layout' as *;
+@use '../../../style/topography' as *;
+
+.dot-dropdown {
+  position: relative;
+  color: #999;
+  &__opener {
+    cursor: pointer;
+    &--active {
+      color: #644bff;
+    }
+    &:hover {
+      color: #644bff;
+    }
+  }
+  &__item-wrapper {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    right: 0;
+    overflow: hidden;
+  }
+  &__item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px $spacer-3;
+    font-size: $font-md;
+    cursor: pointer;
+    &:hover{
+      color: #636363;
+      background-color: #efecff;
+    }
+    &:last-child {
+      margin-bottom: $spacer-0;
+    }
+  }
+  &__item-icon{
+    margin-inline-start: $spacer-1;
+    font-size: $font-md;
+  }
+  &__edit-icon {
+
+    &:hover{
+      .dot-dropdown__item-icon {
+        color: #4caf50;
+      }
+
+    }
+  }
+  &__delete-icon {
+
+    &:hover{
+      .dot-dropdown__item-icon {
+        color: #f44336;
+      }
+
+    }
+  }
+
+}

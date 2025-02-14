@@ -1,0 +1,39 @@
+@mixin  glassmorphic {
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,.2);
+  backdrop-filter: blur(40px);
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  box-shadow: 0px 10px 10px rgba(46, 54, 68, 0.03);
+}
+/* Breakpoint sizes */
+$screen-xs-min: 320px;
+$screen-sm-min: 544px;
+$screen-md-min: 768px;
+$screen-ml-min: 960px;
+$screen-lg-min: 1024px;
+$screen-lx-min: 1280px;
+/* Create the mixin (usually in a separate .scss file) */
+@mixin breakpoint($media) {
+  @if $media == xs {
+    @media (min-width: $screen-xs-min) { @content; }
+  }
+  @else if $media == sm {
+    @media  (min-width: $screen-sm-min) { @content; }
+  }
+  @else if $media == md {
+    @media  (min-width: $screen-md-min) { @content; }
+  }
+  @else if $media == ml {
+    @media  (min-width: $screen-ml-min) { @content; }
+  }
+  @else if $media == lg {
+    @media  (min-width: $screen-lg-min) { @content; }
+  }
+  @else if $media == max-lx {
+    @media  (max-width: $screen-lx-min) { @content; }
+  }
+  @else if $media == max-md {
+    @media  (max-width: $screen-lg-min) { @content; }
+  }
+}

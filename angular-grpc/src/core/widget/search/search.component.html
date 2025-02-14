@@ -1,0 +1,18 @@
+<div class="searchInput" >
+  <input [formControl]="searchField"  class="searchInput__input" type="text" placeholder="Search" (keydown)="pressEnter($event)" (input)="searchItem($event.target)"  [matAutocomplete]="auto"  >
+  <div class="searchInput__resultBox">
+    <!-- here list are inserted from javascript -->
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      @for (item of suggestedList(); track item.id) {
+        <mat-option [value]="item.name"  (click)="clickSuggestion(item)">{{item.name}}</mat-option>
+      }
+    </mat-autocomplete>
+     <!-- @for (item of suggestedList(); track item.id) {
+      <li class="searchInput__result" (click)="clickSuggestion(item)">{{item.name}}</li>
+     } -->
+
+  </div>
+  <div class="searchInput__icon-wrapper" (click)="this.searchFinished.emit(this.searchField.value ?? '')">
+    <em class="material-icons searchInput__icon">search</em>
+  </div>
+</div>

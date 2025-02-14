@@ -1,0 +1,10 @@
+{
+    "cSpell.words": [
+        "glassmorphic"
+    ],
+    "files.autoSave": "afterDelay",
+    "editor.formatOnSave": true,
+    "files.autoSaveDelay": 2000,
+    "files.autoSaveWorkspaceFilesOnly": true,
+    "files.autoSaveWhenNoErrors": true
+}

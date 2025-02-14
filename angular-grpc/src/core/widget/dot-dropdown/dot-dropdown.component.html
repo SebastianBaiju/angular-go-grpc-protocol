@@ -1,0 +1,19 @@
+<div class="dot-dropdown">
+   <em class="material-icons dot-dropdown__opener" [ngClass]="{'dot-dropdown__opener--active': dropDownOpen()}" (click)="dropDownOpen.set(!this.dropDownOpen())">more_vert</em>
+   @if (dropDownOpen()) {
+    <div class="dot-dropdown__item-wrapper">
+      @for (item of items(); track $index) {
+        @if (item.enable) {
+          <div [class]=" item.class +' dot-dropdown__item'" (click)="itemClick(item)">
+            {{item.name}}
+            <em    class="material-icons dot-dropdown__item-icon" (click)="event.emit(item)">{{item.icon}}</em>
+          </div>
+
+        }
+      }
+
+
+    </div>
+   }
+
+</div>

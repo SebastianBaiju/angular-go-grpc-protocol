@@ -1,0 +1,25 @@
+@use '../style/grpc-list' as *;
+@use '../style/mixin' as *;
+@use '../style/layout' as *;
+@use '../style/components.scss' as *;
+:host
+{
+  display: block;
+}
+
+
+
+@include breakpoint( max-lx) {
+  .grpc-list__card {
+    width: calc(50% - $spacer-5) ;
+  }
+  }
+
+
+
+
+  @include breakpoint( max-md) {
+    .grpc-list__card {
+      width: calc(100% - $spacer-3) ;
+    }
+    }

@@ -1,0 +1,47 @@
+<div class="card " data-count="0">
+  <div class="card__body">
+    <div class="card__image-wrapper">
+      @if(imageUrl() !== '') {
+      <img class="card__image" [src]="imageUrl()" />
+      }@else {
+      <div class="card__image">
+        <em class="material-icons card__placeholder   ">perm_identity</em>
+      </div>
+      }
+    </div>
+    <div class="card__data-wrapper">
+      <div class="card__data">
+        <div class="card__value">
+          @if (editEnable()) {
+          <input placeolder="UserName" class="form__input" />
+          } @else {
+          {{ userDetails().name }}
+          }
+        </div>
+      </div>
+      <div class="card__data">
+        <div class="card__username">
+          @if (editEnable()) {
+          <input placeolder="UserName" class="form__input" />
+          } @else {
+          {{ userDetails().username }}
+          }
+        </div>
+      </div>
+      <div class="card__designation ">
+        @if (editEnable()) {
+        <input placeholder="Designation" class="form__input" />
+        } @else {
+        {{ userDetails().role?.role }}
+        }
+      </div>
+    </div>
+      <app-dot-dropdown
+      class="card__dropdown"
+      (event)="itemClick($event)"
+      [items]=" deleteEnable() ?   iconDropdown(): iconDropdownDelete()"
+    ></app-dot-dropdown>
+
+
+  </div>
+</div>

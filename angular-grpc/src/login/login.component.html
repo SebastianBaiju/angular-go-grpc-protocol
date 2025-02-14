@@ -1,0 +1,25 @@
+<div>
+  <div class="login">
+    <div class="login__shape"></div>
+    <div class="login__shape"></div>
+</div>
+<form [formGroup]="loginForm" class="login__form">
+    <h3 class="login__head">Welcome</h3>
+
+    <label  class="login__lebal"for="username">Username</label>
+    <input class="login__input" type="text" placeholder="Email or Phone"formControlName="username">
+
+    <label  class="login__lebal" for="password">Password</label>
+    <input  class="login__input" type="password" placeholder="Password"  formControlName="password">
+    @if( this.error() && this.error() !== '') {
+      <mat-error class="login__error">{{this.error()}}</mat-error>
+    }
+<div  class="login__btn-wrapper">
+  <button mat-stroked-button [color]="'white'" class="login__btn" (click)="login()">LogIn</button>
+</div>
+
+
+</form>
+</div>
+
+

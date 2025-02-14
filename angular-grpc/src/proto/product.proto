@@ -1,0 +1,79 @@
+syntax="proto3";
+option go_package = "sebastianbaiju.com/product-manage/product;pb_product";
+message Product {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    float price = 4;
+    string filename = 5;
+    bytes data = 6;
+    string quantity = 7;
+}
+
+message GetProductRequest {
+    string id = 1;
+}
+
+message CreateProductRequest {
+    string name = 1;
+    string description = 2;
+    float price = 3;
+    string filename = 5;
+    bytes data = 6;
+    string quantity = 7;
+}
+
+message CreateProductResponse {
+    string value = 1;
+    int32 status = 2;
+}
+
+message UpdateProductRequest {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    float price = 4;
+    string filename = 5;
+    bytes data = 6;
+    string quantity = 7;
+}
+
+message DeleteProductRequest {
+    string id = 1;
+}
+message DeleteProductResponse {
+    string value = 1;
+}
+
+message ListProductRequest {
+    int64 offset = 1;
+    int64 Limit = 2;
+    string name = 3;
+}
+message ProductListResponse {
+    repeated Product products = 1;  // This defines a list of Product objects
+    int64 count = 2;
+  }
+message Search {
+    string id = 1;
+    string name = 2;
+}
+
+message SearchResult {
+    repeated Search search = 1;
+}
+
+message  ProductSearchListRequest{
+    string name = 1;
+}
+
+
+service ProductService {
+    rpc GetProduct(GetProductRequest) returns (Product) {}
+    rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
+    rpc UpdateProduct(UpdateProductRequest) returns (CreateProductResponse) {}
+    rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse) {}
+    rpc ListProductStream(ListProductRequest) returns (stream Product) {}
+    rpc ListProduct(ListProductRequest) returns (ProductListResponse) {}
+    rpc ProductListSearch (stream ProductSearchListRequest) returns (stream  SearchResult) {}
+}

@@ -1,0 +1,71 @@
+
+  <div class="app-add-profile" [formGroup]="userForm">
+    <h2  class="app-add-profile__head">Add profile</h2>
+    <em class="material-icons app-add-profile__close" (click)="close()">close</em>
+    @if (password() && password() !== '') {
+      <label  class="app-add-profile__label">Password</label>
+      <div class=" app-add-profile__password-wrapper">
+      <p  class="app-add-profile__password">
+          {{password()}}
+      </p>
+      <em class="material-icons app-add-profile__clip"   [cdkCopyToClipboard]="password()">file_copy</em>
+      </div>
+
+    } @else {
+    <div class="app-add-profile__image-wrapper">
+      @if(imageUrl() !== '') {
+        <div class="app-add-profile__image">
+          <img   class="app-add-profile__image"  [src]="imageUrl()" />
+          <div class="app-add-profile__upload">
+            <em class="material-icons " (click)="upload.click()">cloud_upload</em>
+            @if(imageUrl() !== '') {
+            <em class="material-icons" (click)="remove()">delete_forever</em>
+            }
+          </div>
+        </div>
+
+      }@else {
+        <div  class="app-add-profile__image"  (click)="upload.click()"  >
+          <img  class="app-add-profile__placeholder" src="./\media/upload-placeholde.jpg" />
+        </div>
+
+      }
+
+    </div>
+    <p class="app-add-profile__types" >      Allowed Types: png or jpeg</p>
+
+    <label  class="app-add-profile__label" >Name</label>
+    <input class="app-add-profile__input"  formControlName="name"  placeholder="Name" />
+    @if (userForm.get('name')?.hasError('required') &&( userForm.get('name')?.touched  || create())) {
+      <mat-error class="app-add-profile__error">Please enter a valid name</mat-error>
+    }
+
+    <label  class="app-add-profile__label" >UserName</label>
+    <input class="app-add-profile__input"  formControlName="username"  placeholder="Name" />
+    @if (userForm.get('username')?.hasError('required') &&( userForm.get('username')?.touched  || create())) {
+      <mat-error class="app-add-profile__error">Please enter a valid username</mat-error>
+    }
+    <label  class="app-add-profile__label">Designation</label>
+    <mat-select formControlName="role"  class="app-add-profile__input app-add-profile__input--drop" >
+      @for (item of roleList(); track item) {
+        <mat-option [value]="item.id">{{item.role}}</mat-option>
+      }
+    </mat-select>
+    @if (userForm.get('role')?.hasError('required') && (userForm.get('role')?.touched || create())) {
+      <mat-error class="app-add-profile__error">Please enter a valid designation</mat-error>
+    }
+
+    <div class="app-add-profile__btn-wrapper">
+      <button (click)="addProfile()"  class="app-add-profile__btn grpc__button">{{  edit ? 'Edit Profile':'Add Profile' }}</button>
+    </div>
+
+  }
+  </div>
+
+
+<input
+type="file"
+class="app-add-profile__file"
+#upload
+(change)="uploadedFile($event)"
+/>

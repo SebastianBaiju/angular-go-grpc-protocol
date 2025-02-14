@@ -1,0 +1,13 @@
+@use './style/reset' as *;
+@use './style/base' as *;
+@use './style/mixin' as *;
+
+@use '@angular/material' as mat;
+
+
+@include breakpoint(ml) {
+  mat-bottom-sheet-container{
+    min-width: 700px !important;
+  }
+
+}

@@ -1,0 +1,25 @@
+// Typography
+// Font size
+@use "sass:math";
+$font-base: 1rem !default;
+$font-xxs: $font-base * 0.625 !default; // 10px
+$font-xs: $font-base * 0.75 !default; // 10px
+$font-sm: $font-base * 0.875 !default; // 14px
+$font-md: $font-base * 1 !default; // 16px
+$font-ml: $font-base * 1.25 !default; // 20px
+$font-lg: $font-base * 1.5 !default; // 24px
+$font-xl: $font-base * 2 !default; // 32px
+$font-xll: $font-base * 2.75 !default; // 44px
+
+// Font weight
+$font-weight-thin: 200 !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semi: 600 !default;
+$font-weight-bold: 700 !default;
+
+// Line Height
+$line-height-lg: 1.4 !default;
+$line-height-md: 1.2 !default;
+$line-height-sm: 1.05 !default;

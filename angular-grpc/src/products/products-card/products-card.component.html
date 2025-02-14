@@ -1,0 +1,138 @@
+<div class="card " data-count="0" [formGroup]="productForm">
+  <div class="card__image-wrapper">
+    @if(imageUrl() !== '') {
+    <img class="card__image" [src]="imageUrl()" />
+    @if (editEnable() || createEnable()) {
+    <div class="card__upload">
+      <em class="material-icons " (click)="upload.click()">cloud_upload</em>
+      @if(imageUrl() !== '') {
+      <em class="material-icons" (click)="remove()">delete_forever</em>
+      }
+    </div>
+
+    } } @else {
+    <div class="card__image ">
+      @if (editEnable() || createEnable()) {
+      <div class="card__placeholder">
+        <img
+          class="card__image-placeholder"
+          (click)="upload.click()"
+          src="./\media/upload-placeholde.jpg"
+        />
+      </div>
+
+      } @else {
+      <em class="material-icons card__placeholder">image</em>
+      }
+    </div>
+
+    }
+
+    <input
+      type="file"
+      class="card__file"
+      #upload
+      (change)="uploadedFile($event)"
+    />
+  </div>
+
+  <div class="card__body">
+    <div class="card__btn-wrapper">
+      @if (editEnable() || createEnable()) {
+      <mat-icon
+       matTooltip="Save"
+        aria-hidden="false"
+        class="card__btn"
+        color=""
+        [ngStyle]="{ color: '#4caf50' }"
+        aria-label="save icon"
+        fontIcon="save"
+        (click)="save()"
+      ></mat-icon>
+      }@else {
+      <mat-icon
+          matTooltip="Edit"
+        aria-hidden="false"
+        class="card__btn"
+        color=""
+        [ngStyle]="{ color: '#4caf50' }"
+        aria-label="edit icon"
+        fontIcon="edit"
+        (click)="edit()"
+      ></mat-icon>
+      } @if (editEnable() || createEnable()) {
+      <mat-icon
+          matTooltip="Delete"
+        aria-hidden="false"
+        class="card__btn"
+        [ngStyle]="{ color: '#f44336' }"
+        (click)="close()"
+        color="#4caf50"
+        aria-label=" delete icon"
+        fontIcon="close"
+      ></mat-icon>
+      } @else {
+      <mat-icon
+        matTooltip="Delete"
+        aria-hidden="false"
+        class="card__btn"
+        [ngStyle]="{ color: '#f44336' }"
+        (click)="openDialog()"
+        color="#4caf50"
+        aria-label=" delete icon"
+        fontIcon="delete"
+      ></mat-icon>
+      }
+    </div>
+    <h4 class="card__title">
+      @if (editEnable() || createEnable()) {
+      <input
+        placeholder="Name"
+        formControlName="name"
+        class="form__input form__input--center"
+      />
+      @if (productForm.get('name')?.hasError('required') && (productForm.get('name')?.touched || create())) {
+
+        <mat-error class="card__error">Please enter a valid name</mat-error>
+      }
+
+      } @else {
+      {{ productDetails().name }}
+      }
+    </h4>
+    <div class="card__description">
+      @if (editEnable() || createEnable()) {
+      <textarea
+        placeholder="Description"
+        formControlName="description"
+        class="form__textarea"
+      ></textarea>
+      } @else {
+      {{ productDetails().description }}
+      }
+    </div>
+  </div>
+  <div class="card__footer">
+    <div class="card__price"  >
+      <em class="material-icons" matTooltip="Price">attach_money</em>
+      @if (editEnable() || createEnable()) {
+      <input placeholder="Price" formControlName="price" appTextNumber class="form__input" />
+      } @else { {{ productDetails().price }}
+      }
+    </div>
+    <div class="card__stats"   >
+
+      <em class="material-icons" matTooltip="Quantity">shopping_cart</em>
+      @if (editEnable() || createEnable()) {
+      <input
+      appTextNumber
+        placeholder="Quantity"
+        formControlName="quantity"
+        class="form__input"
+      />
+      } @else {
+      {{ productDetails().quantity }}
+      }
+    </div>
+  </div>
+</div>

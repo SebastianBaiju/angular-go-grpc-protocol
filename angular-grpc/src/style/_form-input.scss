@@ -1,0 +1,26 @@
+@use './topography' as *;
+.form{
+  &__input, &__textarea {
+  border: 0;
+  outline: none;
+  font-size:$font-ml;
+  font-weight: $font-weight-light;
+
+  max-height: 30px;
+  &--center {
+    text-align: center;
+  }
+  &:focus {
+    border: 0;
+    box-shadow: none;
+  }
+}
+&__textarea {
+  font-size:$font-md;
+  color: #999;
+  text-align: center;
+  min-height: 30px;
+  width: 100%;
+resize: none;
+}
+}

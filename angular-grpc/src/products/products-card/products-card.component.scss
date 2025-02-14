@@ -1,0 +1,134 @@
+@use '../../style/mixin' as *;
+@use '../../style/layout' as *;
+@use '../../style/form-input' as *;
+@use '../../style/topography' as *;
+.card {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
+  border: 0;
+  border-radius: 6px;
+  color: #333;
+  background: #fff;
+  width: 100%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  &__image-wrapper {
+    transition: all .3s cubic-bezier(.34,1.61,.7,1);
+    position: relative;
+    padding: 0;
+    z-index: 1;
+    border-radius: 6px;
+    width: calc(100% - $spacer-5);
+    margin: $spacer-0 $spacer-3;
+    margin-top: -30px;
+  }
+  &__image {
+    position: relative;
+    width: 100%;
+   height: 200px;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px -8px rgba(0, 0, 0, .24), 0 8px 10px -5px rgba(0, 0, 0, .2);
+
+  }
+  &__placeholder {
+    font-size: 150px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 5px;
+    color: #7e7e7e21;
+  }
+  &__file {
+    display:none;
+  }
+  &__upload  {
+    background: #ffffff9b;
+    padding: $spacer-3;
+    border-radius: 5px;
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+  }
+  &__image-placeholder {
+    width: auto;
+    height: 110px;
+  }
+&__title {
+     color: #3c4858;
+    text-decoration: none;
+    font-size:$font-ml;
+    font-weight: $font-weight-light;
+    text-align: center;
+}
+&__description {
+  color: #999;
+  text-align: center;
+}
+&__body {
+  padding: $spacer-3;
+  position: relative;
+}
+&__price, &__stats{
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+&__stats{
+
+  justify-content: end;
+  .form__input {
+    text-align: end;
+  }
+}
+&__footer {
+  display: flex;
+    padding: $spacer-2 $spacer-0 $spacer-0;
+    margin:auto $spacer-3 $spacer-3;
+    border-radius: 0;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+  border-top: 1px solid #eee;
+}
+&__btn-wrapper{
+  position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    mat-icon {
+      margin: $spacer-2;
+    }
+}
+&__error {
+  font-size: $font-sm;
+}
+&__btn {
+  cursor: pointer;
+  color: attr(color);
+}
+&:hover {
+  .card__image-wrapper {
+    -webkit-transform: translate3d(0, -50px, 0);
+    transform: translate3d(0, -50px, 0);
+  }
+
+}
+
+}
+
+:host {
+  display: block;
+}

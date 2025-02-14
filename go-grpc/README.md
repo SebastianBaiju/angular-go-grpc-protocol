@@ -1,4 +1,4 @@
-# Connecting Angular and Golang with gRPC
+# Connecting Angular and Go with gRPC
 
 ## Overview
 This project demonstrates how to establish a connection between an Angular frontend and a Golang backend using the gRPC protocol. By leveraging Protocol Buffers (protobufs), we enable efficient and structured communication between the two services.
@@ -6,7 +6,7 @@ This project demonstrates how to establish a connection between an Angular front
 ## Technologies Used
 
 
-### 🔹 Golang 
+### 🔹 Go 
 ### Technologies Used 
 - `google.golang.org/grpc` – Implements gRPC server  
 - `google.golang.org/protobuf` – Manages protocol buffers  
@@ -24,7 +24,7 @@ git clone https://github.com/SebastianBaiju/angular-golang-grpc-protocol.git
 
 ### 2. Install Dependencies
 
-#### Golang
+#### Go
 ```sh
 cd go-gRPC
 go mod tidy
@@ -32,7 +32,7 @@ go mod tidy
 
 ### 3. Compile Proto Files
 
-#### Golang
+#### Go
 ```sh
 cd proto
 make all
@@ -40,14 +40,14 @@ make all
 
 ### 4. Run the Project
 
-#### Start Golang Server
+#### Start Go Server
 ```sh
 go run main.go
 ```
 
 ## Environment Configuration
 
-### Golang (`.env` file)
+### Go (`.env` file)
 ```
 PORT=8080
 

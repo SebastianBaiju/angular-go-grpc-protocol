@@ -19,7 +19,7 @@ This project demonstrates how to establish a connection between an Angular front
 
 ### 1. Clone the Repository
 ```sh
-[git clone https://github.com/SebastianBaiju/angular-golang-grpc-protocol.git](https://github.com/SebastianBaiju/angular-go-grpc-protocol.git)
+git clone https://github.com/SebastianBaiju/angular-go-grpc-protocol.git
 ```
 
 ### 2. Install Dependencies

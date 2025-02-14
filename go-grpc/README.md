@@ -1,7 +1,7 @@
 # Connecting Angular and Go with gRPC
 
 ## Overview
-This project demonstrates how to establish a connection between an Angular frontend and a Golang backend using the gRPC protocol. By leveraging Protocol Buffers (protobufs), we enable efficient and structured communication between the two services.
+This project demonstrates how to establish a connection between an Angular frontend and a Go backend using the gRPC protocol. By leveraging Protocol Buffers (protobufs), we enable efficient and structured communication between the two services.
 
 ## Technologies Used
 

@@ -99,10 +99,12 @@ export class ProfilesComponent {
     const id = new DeleteUserRequest ({
       id: eventValue
     })
-    this.subs.add(this._usersService.deleteUser(id).subscribe(data=> {
+    this.subs.add(this._usersService.deleteUser(id).subscribe({next: data=> {
       this._toaster.success(data.value ?? '');
       this.getUserList();
-    }));
+    }, error: err => {
+      this._toaster.error(err.statusMessage ?? '');
+    }}));
   }
 
   searchFinished(event: string) {

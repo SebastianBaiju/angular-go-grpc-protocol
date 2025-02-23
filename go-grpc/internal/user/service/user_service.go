@@ -87,6 +87,14 @@ func (c *UserServer) UpdateUser(ctx context.Context, userValue *user.UpdateUserR
 		return nil, status.Error(codes.Internal, fmt.Sprintf("Failed to update  uuid: %v", er))
 	}
 	userCheck, errors, currentUser := repo.UserExists(userValue.Username)
+
+	usr,userError :=  repo.GetUserById(userUUID)
+	if userError != nil {
+		return nil, status.Error(codes.Internal, fmt.Sprintf("Failed to update  uuid: %v", er))
+	}
+	if usr.UserName == "Admin" { 
+		return nil, status.Error(codes.Internal, fmt.Sprintf("Failed to update : %v ", "Admin cannot be updated"))
+	}
 	if errors != nil {
 		return nil, status.Error(codes.Internal, fmt.Sprintf("Failed to update user: %v ", errors))
 	} else if userCheck && currentUser.ID != userUUID {
@@ -116,6 +124,13 @@ func (c *UserServer) UpdateUser(ctx context.Context, userValue *user.UpdateUserR
 
 func (c *UserServer) DeleteUser(ctx context.Context, userValue *user.DeleteUserRequest) (*user.UserResponse, error) {
 	userUUID, er := uuid.FromString(userValue.Id)
+	usr,userError :=  repo.GetUserById(userUUID)
+	if userError != nil {
+		return nil, status.Error(codes.Internal, fmt.Sprintf("Failed to Delete  uuid: %v", er))
+	}
+	if usr.UserName == "Admin" { 
+		return nil, status.Error(codes.Internal, fmt.Sprintf("Failed to Delete : %v ", "Admin cannot be Deleted"))
+	}
 	if er != nil {
 		return nil, status.Error(codes.Internal, fmt.Sprintf("Failed Delete %v", er))
 	}

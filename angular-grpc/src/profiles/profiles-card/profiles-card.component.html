@@ -36,11 +36,14 @@
         }
       </div>
     </div>
+    @if ( userDetails().username !== 'Admin') {
       <app-dot-dropdown
       class="card__dropdown"
       (event)="itemClick($event)"
       [items]=" deleteEnable() ?   iconDropdown(): iconDropdownDelete()"
     ></app-dot-dropdown>
+    }
+
 
 
   </div>

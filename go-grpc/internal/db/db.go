@@ -37,7 +37,7 @@ func DatabaseConnection() {
 		log.Fatal("db connection error: ", err)
 	}
 	log.Println("db connection successful")
-	DB.Raw(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`)
+	DB.Exec(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`)
 
 	if err := DB.AutoMigrate(schemas...); err != nil {
 		log.Printf("Failed to migrate Database: %v", err)

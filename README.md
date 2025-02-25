@@ -87,11 +87,16 @@ DB_NAME=postgres
     window.__env.baseUrl = 'http://localhost:8080';
 }(this));
 ```
+## Docker
+```sh
+docker pull sebu5683/grpc-go-angular:latest
+```
 
 ## Resources
 - [gRPC Go Quickstart](https://grpc.io/docs/languages/go/quickstart/)
 - [GORM Documentation](https://gorm.io/index.html)
 - [ngx-grpc GitHub](https://github.com/smnbbrv/ngx-grpc)
+- [Docker](https://hub.docker.com/repository/docker/sebu5683/grpc-go-angular/tags)
 
 ## Inspiration
 This project is inspired by [grpc-template](https://github.com/Jerinji2016/grpc-template). Contributions are welcome—let’s build something great together! 🚀

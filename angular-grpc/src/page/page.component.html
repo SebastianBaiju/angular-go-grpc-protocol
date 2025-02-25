@@ -29,7 +29,7 @@
         </div>
 
         @for (item of routes; track $index) {
-          <a  class="side-bar__prod" [routerLink]="item.router" (click)="clickRoute()" [ngClass]="{'side-bar__prod--active' : currentRouter().includes(item.router)  }">
+          <a  class="side-bar__prod" [routerLink]="item.router" (click)="clickRoute()" routerLinkActive="side-bar__prod--active" >
             <em class="material-icons side-bar__icon">{{item.icon}}</em>
             {{item.name}}
           </a>

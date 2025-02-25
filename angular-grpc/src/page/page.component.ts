@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { filter } from 'rxjs';
 import { UserService } from '../profiles/service/user.service';
@@ -10,7 +10,7 @@ import { ImageService } from '../core/service/image.service';
 import {MatTooltipModule} from '@angular/material/tooltip';
 @Component({
   selector: 'app-page',
-  imports: [RouterOutlet, RouterLink, NgClass,MatTooltipModule],
+  imports: [RouterOutlet, RouterLink, NgClass,MatTooltipModule, RouterLinkActive],
   templateUrl: './page.component.html',
   styleUrl: './page.component.scss',
   providers:[UserService,ImageService]
@@ -34,20 +34,12 @@ export class PageComponent implements OnInit{
   private _imageService = inject(ImageService);
   private subs =  new SubSink();
 
-  public currentRouter = signal('');
   public openedSidebar = signal(false);
   public userDetails = signal<User | null>(null);
   public imageUrl = signal('');
   public smallScreen = false;
 
   constructor() {
-   this._router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event) => {
-      if (event.constructor.name === 'NavigationEnd') {
-        this.currentRouter.set(event.urlAfterRedirects);
-      }
-    });
   }
 
   logout() {

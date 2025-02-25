@@ -98,8 +98,8 @@ docker pull sebu5683/grpc-go-angular:latest
 - [ngx-grpc GitHub](https://github.com/smnbbrv/ngx-grpc)
 - [Docker](https://hub.docker.com/repository/docker/sebu5683/grpc-go-angular/tags)
 - [Demo Url](https://grpc-go-angular.sebastianbaiju.com/)
-      username: admin
-      password: admin
+  - username: admin
+  - password: admin
 
 ## Inspiration
 This project is inspired by [grpc-template](https://github.com/Jerinji2016/grpc-template). Contributions are welcome—let’s build something great together! 🚀
